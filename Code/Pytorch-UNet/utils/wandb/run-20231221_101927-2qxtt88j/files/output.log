@@ -1,0 +1,795 @@
+/content/drive/MyDrive/MERIDA/examples-input/2.npy/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-input/3.npy
+/content/drive/MyDrive/MERIDA/examples-input/1.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/1.npy
+torch.Size([1, 100, 100, 8])
+torch.Size([1, 100, 100, 8])
+/content/drive/MyDrive/MERIDA/examples-input/4.npytorch.Size([1, 100, 100, 8])
+torch.Size([1, 100, 100, 8])
+/content/drive/MyDrive/MERIDA/examples-output/4.npy
+torch.Size([1, 100, 100, 8])
+/content/drive/MyDrive/MERIDA/Pytorch-UNet
+python3: can't open file '/content/drive/MyDrive/MERIDA/Pytorch-UNet/train2.py': [Errno 2] No such file or directory
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	2 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5088 examples
+INFO: Scanning mask files to determine unique values
+
+  0% 0/5088 [00:00<?, ?it/s]^C
+python3: can't open file '/content/drive/MyDrive/MERIDA/Pytorch-UNet/train2.py': [Errno 2] No such file or directory
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	2 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_111222-13srou09
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mglamorous-snowflake-2
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/13srou09?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/0.npy
+/content/drive/MyDrive/MERIDA/examples-input/4.npy
+/content/drive/MyDrive/MERIDA/examples-output/4.npy
+/content/drive/MyDrive/MERIDA/examples-input/2.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-input/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy
+/content/drive/MyDrive/MERIDA/examples-input/1.npy
+/content/drive/MyDrive/MERIDA/examples-output/1.npy
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 212, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 90, in train_model
+    images, true_masks = batch['image'], batch['mask']
+KeyError: 'image'
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	2 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5088 examples
+INFO: Scanning mask files to determine unique values
+
+  0% 15/5088 [00:04<24:47,  3.41it/s]
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 856, in next
+    item = self._items.popleft()
+IndexError: pop from an empty deque
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/utils/data_loading.py", line 159, in __init__
+    unique = list(tqdm(
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 861, in next
+    self._cond.wait(timeout)
+  File "/usr/lib/python3.10/threading.py", line 320, in wait
+    waiter.acquire()
+KeyboardInterrupt
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 212, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 43, in train_model
+    dataset = CarvanaDataset(dir_img, dir_mask, img_scale)
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/utils/data_loading.py", line 223, in __init__
+    super().__init__(images_dir, mask_dir, scale, mask_suffix='_mask')
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/utils/data_loading.py", line 158, in __init__
+    with Pool() as p:
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 739, in __exit__
+    self.terminate()
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 657, in terminate
+    self._terminate()
+  File "/usr/lib/python3.10/multiprocessing/util.py", line 224, in __call__
+    res = self._callback(*self._args, **self._kwargs)
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 695, in _terminate_pool
+    cls._help_stuff_finish(inqueue, task_handler, len(pool))
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 677, in _help_stuff_finish
+    inqueue._reader.recv()
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 421, in _recv_bytes
+    return self._recv(size)
+  File "/usr/lib/python3.10/multiprocessing/connection.py", line 379, in _recv
+    chunk = read(handle, remaining)
+KeyboardInterrupt
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	2 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+INFO: Scanning mask files to determine unique values
+  0% 0/5 [00:00<?, ?it/s]
+INFO: Creating dataset with 5 examples
+INFO: Scanning mask files to determine unique values
+  0% 0/5 [00:00<?, ?it/s]
+multiprocessing.pool.RemoteTraceback:
+"""
+multiprocessing.pool.RemoteTraceback:
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/utils/data_loading.py", line 27, in unique_mask_values
+    mask_file = list(mask_dir.glob(idx + mask_suffix + '.*'))[0]
+IndexError: list index out of range
+"""
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 43, in train_model
+    dataset = CarvanaDataset(dir_img, dir_mask, img_scale)
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/utils/data_loading.py", line 223, in __init__
+    super().__init__(images_dir, mask_dir, scale, mask_suffix='_mask')
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/utils/data_loading.py", line 159, in __init__
+    unique = list(tqdm(
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 873, in next
+    raise value
+IndexError: list index out of range
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/PIL/Image.py", line 2992, in fromarray
+    mode, rawmode = _fromarray_typemap[typekey]
+KeyError: ((1, 1, 8), '<f8')
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/utils/data_loading.py", line 28, in unique_mask_values
+    mask = np.asarray(load_image(mask_file))
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/utils/data_loading.py", line 19, in load_image
+    return Image.fromarray(np.load(filename))
+  File "/usr/local/lib/python3.10/dist-packages/PIL/Image.py", line 2994, in fromarray
+    raise TypeError("Cannot handle this data type: %s, %s" % typekey) from e
+TypeError: Cannot handle this data type: (1, 1, 8), <f8
+"""
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 212, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 45, in train_model
+    dataset = BasicDataset(dir_img, dir_mask, img_scale)
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/utils/data_loading.py", line 159, in __init__
+    unique = list(tqdm(
+  File "/usr/local/lib/python3.10/dist-packages/tqdm/std.py", line 1195, in __iter__
+    for obj in iterable:
+  File "/usr/lib/python3.10/multiprocessing/pool.py", line 873, in next
+    raise value
+TypeError: Cannot handle this data type: (1, 1, 8), <f8
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	2 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_112445-3riz3bjl
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mexpert-sound-3
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/3riz3bjl?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]/content/drive/MyDrive/MERIDA/examples-input/2.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-input/1.npy
+/content/drive/MyDrive/MERIDA/examples-output/1.npy
+/content/drive/MyDrive/MERIDA/examples-input/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy
+/content/drive/MyDrive/MERIDA/examples-input/4.npy
+/content/drive/MyDrive/MERIDA/examples-output/4.npy
+/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/0.npy
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 212, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 90, in train_model
+    images, true_masks = batch['image'], batch['mask']
+KeyError: 'image'
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	2 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_113445-rnmu14ez
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mvague-pine-4
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/rnmu14ez?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]/content/drive/MyDrive/MERIDA/examples-input/4.npy
+/content/drive/MyDrive/MERIDA/examples-output/4.npy
+/content/drive/MyDrive/MERIDA/examples-input/2.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/0.npy
+/content/drive/MyDrive/MERIDA/examples-input/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 212, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 92, in train_model
+    assert images.shape[1] == model.n_channels, \
+AssertionError: Network has been defined with 3 input channels, but loaded images have 100 channels. Please check that the images are loaded correctly.
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	2 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_113632-35spj74l
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mserene-leaf-5
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/35spj74l?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]/content/drive/MyDrive/MERIDA/examples-input/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy
+/content/drive/MyDrive/MERIDA/examples-input/2.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/0.npy
+/content/drive/MyDrive/MERIDA/examples-input/1.npy
+/content/drive/MyDrive/MERIDA/examples-output/1.npy
+100
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 213, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 93, in train_model
+    assert images.shape[1] == model.n_channels, \
+AssertionError: Network has been defined with 3 input channels, but loaded images have 100 channels. Please check that the images are loaded correctly.
+INFO: Using device cuda
+INFO: Network:
+	3 input channels
+	2 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_113742-2fl95nx1
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33matomic-jazz-6
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/2fl95nx1?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]/content/drive/MyDrive/MERIDA/examples-input/2.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-input/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy
+/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/0.npy
+/content/drive/MyDrive/MERIDA/examples-input/1.npy
+/content/drive/MyDrive/MERIDA/examples-output/1.npy
+100
+/content/drive/MyDrive/MERIDA/examples-input/4.npy
+/content/drive/MyDrive/MERIDA/examples-output/4.npy
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 213, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 93, in train_model
+    assert images.shape[1] == model.n_channels, \
+AssertionError: Network has been defined with 3 input channels, but loaded images have 100 channels. Please check that the images are loaded correctly.
+INFO: Using device cuda
+INFO: Network:
+	8 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_114456-v1m8l4sf
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mrural-oath-7
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/v1m8l4sf?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]/content/drive/MyDrive/MERIDA/examples-input/4.npy
+/content/drive/MyDrive/MERIDA/examples-output/4.npy
+/content/drive/MyDrive/MERIDA/examples-input/2.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-input/1.npy
+/content/drive/MyDrive/MERIDA/examples-output/1.npy
+/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/0.npy
+100
+/content/drive/MyDrive/MERIDA/examples-input/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 213, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 93, in train_model
+    assert images.shape[1] == model.n_channels, \
+AssertionError: Network has been defined with 8 input channels, but loaded images have 100 channels. Please check that the images are loaded correctly.
+/content/drive/MyDrive/MERIDA/examples-input/3.npy/content/drive/MyDrive/MERIDA/examples-input/1.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy/content/drive/MyDrive/MERIDA/examples-output/1.npy
+/content/drive/MyDrive/MERIDA/examples-input/2.npy/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy/content/drive/MyDrive/MERIDA/examples-output/0.npy
+100
+100
+/content/drive/MyDrive/MERIDA/examples-input/4.npy100
+100
+/content/drive/MyDrive/MERIDA/examples-output/4.npy
+100
+/content/drive/MyDrive/MERIDA/examples-input/4.npy/content/drive/MyDrive/MERIDA/examples-input/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/4.npy
+/content/drive/MyDrive/MERIDA/examples-input/0.npy100
+/content/drive/MyDrive/MERIDA/examples-output/3.npy/content/drive/MyDrive/MERIDA/examples-output/0.npy
+/content/drive/MyDrive/MERIDA/examples-input/2.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-input/1.npy100
+100
+/content/drive/MyDrive/MERIDA/examples-output/1.npy
+100
+100
+/content/drive/MyDrive/MERIDA/examples-input/2.npy/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-input/3.npy/content/drive/MyDrive/MERIDA/examples-input/4.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/4.npy
+100
+100
+/content/drive/MyDrive/MERIDA/examples-input/1.npy100
+100
+/content/drive/MyDrive/MERIDA/examples-output/1.npy
+100
+INFO: Using device cuda
+INFO: Network:
+	8 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_115335-30c8wing
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mapricot-water-8
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/30c8wing?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]/content/drive/MyDrive/MERIDA/examples-input/1.npy
+/content/drive/MyDrive/MERIDA/examples-output/1.npy
+/content/drive/MyDrive/MERIDA/examples-input/2.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-input/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy
+/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/0.npy
+100
+/content/drive/MyDrive/MERIDA/examples-input/4.npy
+/content/drive/MyDrive/MERIDA/examples-output/4.npy
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 213, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 93, in train_model
+    assert images.shape[2] == model.n_channels, \
+AssertionError: Network has been defined with 8 input channels, but loaded images have 100 channels. Please check that the images are loaded correctly.
+INFO: Using device cuda
+INFO: Network:
+	8 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_115359-1m2mh7q7
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mvague-totem-9
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/1m2mh7q7?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]/content/drive/MyDrive/MERIDA/examples-input/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy
+/content/drive/MyDrive/MERIDA/examples-input/1.npy
+/content/drive/MyDrive/MERIDA/examples-input/2.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-output/1.npy
+torch.Size([1, 100, 100, 8])
+/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/0.npy
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 213, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 93, in train_model
+    assert images.shape[2] == model.n_channels, \
+AssertionError: Network has been defined with 8 input channels, but loaded images have 100 channels. Please check that the images are loaded correctly.
+INFO: Using device cuda
+INFO: Network:
+	8 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_115416-169a5ire
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mdifferent-flower-10
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/169a5ire?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]/content/drive/MyDrive/MERIDA/examples-input/2.npy
+/content/drive/MyDrive/MERIDA/examples-output/2.npy
+/content/drive/MyDrive/MERIDA/examples-input/3.npy
+/content/drive/MyDrive/MERIDA/examples-output/3.npy
+/content/drive/MyDrive/MERIDA/examples-input/1.npy
+/content/drive/MyDrive/MERIDA/examples-output/1.npy
+/content/drive/MyDrive/MERIDA/examples-input/0.npy
+/content/drive/MyDrive/MERIDA/examples-output/0.npy
+torch.Size([1, 100, 100, 8])
+/content/drive/MyDrive/MERIDA/examples-input/4.npy
+/content/drive/MyDrive/MERIDA/examples-output/4.npy
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 213, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 102, in train_model
+    masks_pred = model(images)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/unet/unet_model.py", line 26, in forward
+    x1 = self.inc(x)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/unet/unet_parts.py", line 25, in forward
+    return self.double_conv(x)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/container.py", line 215, in forward
+    input = module(input)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/conv.py", line 460, in forward
+    return self._conv_forward(input, self.weight, self.bias)
+  File "/usr/local/lib/python3.10/dist-packages/torch/nn/modules/conv.py", line 456, in _conv_forward
+    return F.conv2d(input, weight, bias, self.stride,
+RuntimeError: Given groups=1, weight of size [64, 8, 3, 3], expected input[1, 100, 100, 8] to have 8 channels, but got 100 channels instead
+INFO: Using device cuda
+INFO: Network:
+	8 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_121138-3rqx6fs8
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mcrisp-smoke-11
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/3rqx6fs8?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 212, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 92, in train_model
+    assert images.shape[1] == model.n_channels, \
+AssertionError: Network has been defined with 8 input channels, but loaded images have 100 channels. Please check that the images are loaded correctly.
+INFO: Using device cuda
+INFO: Network:
+	8 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_121243-in7n6g8u
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mgrateful-deluge-12
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/in7n6g8u?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 212, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 92, in train_model
+    assert images.shape[1] == model.n_channels, \
+AssertionError: Network has been defined with 8 input channels, but loaded images have 100 channels. Please check that the images are loaded correctly.
+INFO: Using device cuda
+INFO: Network:
+	8 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 43, in train_model
+    dataset = CustomDataset(dir_img, dir_mask)
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/utils/data_loading.py", line 51, in __init__
+    raise RuntimeError(f'No input file found in {data_dir}, make sure you put your data files there')
+RuntimeError: No input file found in /content/examples-input, make sure you put your data files there
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 212, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 45, in train_model
+    dataset = BasicDataset(dir_img, dir_mask, img_scale)
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/utils/data_loading.py", line 98, in __init__
+    raise RuntimeError(f'No input file found in {images_dir}, make sure you put your images there')
+RuntimeError: No input file found in /content/examples-input, make sure you put your images there
+INFO: Using device cuda
+INFO: Network:
+	8 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_123442-201o8iep
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mdevout-blaze-13
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/201o8iep?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 212, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 92, in train_model
+    assert images.shape[1] == model.n_channels, \
+AssertionError: Network has been defined with 8 input channels, but loaded images have 100 channels. Please check that the images are loaded correctly.
+INFO: Using device cuda
+INFO: Network:
+	8 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 5 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_123530-2m5cn1c6
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33meager-thunder-14
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/2m5cn1c6?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   5
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]torch.Size([1, 100, 100, 8]) 8
+Epoch 1/1:   0% 0/5 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 213, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 93, in train_model
+    assert images.shape[1] == model.n_channels, \
+AssertionError: Network has been defined with 8 input channels, but loaded images have 100 channels. Please check that the images are loaded correctly.
+Archive:  /content/examples-input-20231221T123643Z-001.zip
+   creating: examples-input/.ipynb_checkpoints/
+  inflating: examples-input/1.npy
+  inflating: examples-input/2.npy
+  inflating: examples-input/0.npy
+Archive:  /content/examples-output-20231221T123647Z-001.zip
+   creating: examples-output/.ipynb_checkpoints/
+  inflating: examples-output/0.npy
+  inflating: examples-output/1.npy
+  inflating: examples-output/2.npy
+Archive:  /content/examples-input-20231221T123643Z-001.zip
+caution: filename not matched:  /content/input/
+Archive:  /content/examples-input-20231221T123643Z-001.zip
+caution: filename not matched:  /content/input
+Archive:  /content/examples-input-20231221T123643Z-001.zip
+   creating: /content/examples-input/.ipynb_checkpoints/
+  inflating: /content/examples-input/1.npy
+  inflating: /content/examples-input/2.npy
+  inflating: /content/examples-input/0.npy
+0.npy  1.npy  2.npy
+[Errno 2] No such file or directory: 'content'
+/content/drive/MyDrive/MERIDA/Pytorch-UNet
+INFO: Using device cuda
+INFO: Network:
+	8 input channels
+	1 output channels (classes)
+	Transposed conv upscaling
+INFO: Creating dataset with 3 examples
+[34m[1mwandb[39m[22m: Currently logged in as: [33manony-mouse-581186709847561327[39m. Use [1m`wandb login --relogin`[22m to force relogin
+[34m[1mwandb[39m[22m: wandb version 0.16.1 is available!  To upgrade, please run:
+[34m[1mwandb[39m[22m:  $ pip install wandb --upgrade
+[34m[1mwandb[39m[22m: Tracking run with wandb version 0.13.5
+[34m[1mwandb[39m[22m: Run data is saved locally in [35m[1m/content/drive/MyDrive/MERIDA/Pytorch-UNet/wandb/run-20231221_124013-ewcxaigs
+[34m[1mwandb[39m[22m: Run [1m`wandb offline`[22m to turn off syncing.
+[34m[1mwandb[39m[22m: Syncing run [33mmisunderstood-wind-15
+[34m[1mwandb[39m[22m: ⭐️ View project at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: 🚀 View run at [34m[4mhttps://wandb.ai/anony-mouse-581186709847561327/U-Net/runs/ewcxaigs?apiKey=85e9e13eed673cb60086d2f560857989588e58f2
+[34m[1mwandb[39m[22m: [33mWARNING[39m Do NOT share these links with anyone. They can be used to claim your runs.
+INFO: Starting training:
+        Epochs:          1
+        Batch size:      1
+        Learning rate:   1e-05
+        Training size:   3
+        Validation size: 0
+        Checkpoints:     True
+        Device:          cuda
+        Images scaling:  0.5
+        Mixed Precision: True
+Epoch 1/1:   0% 0/3 [00:00<?, ?img/s]torch.Size([1, 100, 100, 8]) 8
+Epoch 1/1:   0% 0/3 [00:00<?, ?img/s]
+Traceback (most recent call last):
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 213, in <module>
+    train_model(
+  File "/content/drive/MyDrive/MERIDA/Pytorch-UNet/train.py", line 93, in train_model
+    assert images.shape[1] == model.n_channels, \
