@@ -299,3 +299,7 @@ output_files = ['/content/salidaexample1.npy']
 predict_from_checkpoint('MODEL.pth', input_files, output_files, bilinear=False, no_save=False)
 ```
 
+Se ha subido una versión del modelo previamente entrenado en el siguiente enlace:
+
+https://mega.nz/folder/nBAVzJqZ#9_ODIDPU3kYwvX6t0r8Y_w
+
