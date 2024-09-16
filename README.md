@@ -28,7 +28,7 @@ Para ello, ejecute el siguiente comando:
 
 - Procesar matrices en base a un directorio:
  
-Esta función combina varias matrices en una sola matriz de 8 dimensiones, opcionalmente estandariza algunas matrices y guarda el resultado en formato .npy.
+Esta función combina varias matrices en una sola matriz de 5 dimensiones, opcionalmente estandariza algunas matrices y guarda el resultado en formato .npy.
 
 ```
 import numpy as np
@@ -54,9 +54,6 @@ def procesar_matrices(folder, folder_output, estandarizacion=False):
                 user_data = os.path.join(folder, 'users')
                 pathloss_data = os.path.join(folder, 'pathloss')
 
-                matriz_femto_snr = np.loadtxt(snr_femto, dtype=float)
-                matriz_micro_snr = np.loadtxt(snr_micro, dtype=float)
-                matriz_pico_snr = np.loadtxt(snr_pico, dtype=float)
                 matriz_femto_deploy = np.loadtxt(deploy_femto, dtype=float)
                 matriz_micro_deploy = np.loadtxt(deploy_micro, dtype=float)
                 matriz_pico_deploy = np.loadtxt(deploy_pico, dtype=float)
@@ -64,13 +61,12 @@ def procesar_matrices(folder, folder_output, estandarizacion=False):
                 matriz_users = np.loadtxt(user_data, dtype=float)
 
                 # Combina las matrices en una sola matriz de 8 dimensiones
-                matriz_combinada = np.array([matriz_femto_snr, matriz_micro_snr, matriz_pico_snr,
-                                             matriz_femto_deploy, matriz_micro_deploy, matriz_pico_deploy,
+                matriz_combinada = np.array([matriz_femto_deploy, matriz_micro_deploy, matriz_pico_deploy,
                                              matriz_pathloss, matriz_users])
 
                 if estandarizacion:
                     # Índices de las matrices que deseas estandarizar
-                    indices_estandarizar = [0, 1, 2, 6]
+                    indices_estandarizar = [3]
 
                     # Calcula la media y la desviación estándar para las matrices seleccionadas
                     medias = np.mean(matriz_combinada[indices_estandarizar], axis=(0, 1))
@@ -117,19 +113,17 @@ En el caso en el que solo deseemos generar las muestras para un caso en concreto
 ```
 import numpy as np
 
-def procesar_matrices(matriz_femto_snr, matriz_micro_snr, matriz_pico_snr,
-                      matriz_femto_deploy, matriz_micro_deploy, matriz_pico_deploy,
+def procesar_matrices(matriz_femto_deploy, matriz_micro_deploy, matriz_pico_deploy,
                       matriz_pathloss, matriz_users, data_users_info,
                       folder_output, estandarizacion=False):
     
     # Combina las matrices en una sola matriz de 8 dimensiones
-    matriz_combinada = np.array([matriz_femto_snr, matriz_micro_snr, matriz_pico_snr,
-                                 matriz_femto_deploy, matriz_micro_deploy, matriz_pico_deploy,
+    matriz_combinada = np.array([matriz_femto_deploy, matriz_micro_deploy, matriz_pico_deploy,
                                  matriz_pathloss, matriz_users])
 
     if estandarizacion:
         # Índices de las matrices que deseas estandarizar
-        indices_estandarizar = [0, 1, 2, 6]
+        indices_estandarizar = [3]
 
         # Calcula la media y la desviación estándar para las matrices seleccionadas
         medias = np.mean(matriz_combinada[indices_estandarizar], axis=(0, 1))
@@ -177,8 +171,7 @@ matriz_pathloss = np.loadtxt('/content/UNET5G/SAMPLE/adaptive_0/0-0-4605876/ia/r
 matriz_users = np.loadtxt('/content/UNET5G/SAMPLE/adaptive_0/0-0-4605876/ia/raw/users')
 data_users_info = np.genfromtxt('/content/UNET5G/SAMPLE/adaptive_0/0-0-4605876/ia/raw/usersInfo/0.csv',delimiter=',', skip_header=1)
  
-procesar_matrices(matriz_femto_snr, matriz_micro_snr, matriz_pico_snr,
-                  matriz_femto_deploy, matriz_micro_deploy, matriz_pico_deploy,
+procesar_matrices(matriz_femto_deploy, matriz_micro_deploy, matriz_pico_deploy,
                   matriz_pathloss, matriz_users, data_users_info,
                   '/content/', estandarizacion=False)
 ```
@@ -231,58 +224,64 @@ def mover_muestras_para_test(folder_output, porcentaje_test=0.10):
         print(archivos_validacion_completo[1], archivos_validacion_completo[2])
 ```
 
-# Realizar regresión con el modelo entrenado previamente:
+# GPU - Realizar regresión con el modelo entrenado previamente:
 
-Esta función carga un modelo desde un checkpoint y realiza predicciones sobre un conjunto de archivos de entrada, guardando los resultados en archivos de salida.
+Estas funciones cargan un modelo desde un checkpoint y realiza predicciones sobre un conjunto de archivos de entrada.
 
 ```
+import argparse
 import logging
 import os
 import numpy as np
 import torch
-from unet import UNet  # Asegúrate de actualizar este import según la definición de tu modelo
+from PIL import Image
+from torchvision import transforms
+from utils.data_loading import CustomDataset 
+from unet import UNet 
 from torch.nn import DataParallel
 
 def predict_regression(net, input_data, device):
     net.eval()
     input_data = torch.from_numpy(input_data).unsqueeze(0).float()
+    #input_data = input_data.unsqueeze(0)
     input_data = input_data.to(device=device, dtype=torch.float32)
-
     with torch.no_grad():
         output = net(input_data).cpu()
-        regression_values = output
-
+        regression_values = output.squeeze(0).numpy()
     return regression_values
 
-def predict_from_checkpoint(model_checkpoint, input_files, output_files=None, bilinear=False, no_save=False):
-    logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
-
-    if output_files is None:
-        output_files = [f'{os.path.splitext(fn)[0]}_OUT.npy' for fn in input_files]
-
-    net = DataParallel(UNet(n_channels=8, n_classes=1, bilinear=bilinear))
-
+def load_model(model):
+    net = torch.nn.DataParallel(UNet(n_channels=5, n_classes=3, bilinear=False))  # Update with your model definition
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    logging.info(f'Loading model {model_checkpoint}')
-    logging.info(f'Using device {device}')
-
     net.to(device=device)
-    state_dict = torch.load(model_checkpoint, map_location=device)
+    state_dict = torch.load(model, map_location=device)
     net.load_state_dict(state_dict)
+    return (net,device)
 
-    logging.info('Model loaded!')
+def make_pred(net_pack,input_data):
+    input_matrix = np.load(input_data)
+    regression_values = predict_regression(net=net_pack[0],input_data=input_matrix,device=net_pack[1])
+    
+```
 
-    for i, filename in enumerate(input_files):
-        logging.info(f'Predicting values for matrix {filename} ...')
-        input_matrix = np.load(filename)
-        print(input_matrix.shape)
+# CPU - En caso de que se quiera inferir usando CPU, el único cambio a realizar será la forma en la que se carga el modelo:
 
-        regression_values = predict_regression(net=net, input_data=input_matrix, device=device)
+```
+def load_model_cpu(model):
+    # Cargar el modelo sin usar DataParallel
+    net = UNet(n_channels=5, n_classes=3, bilinear=False)
+    device = torch.device('cpu')  # Usar CPU
+    net.to(device=device)
 
-        if not no_save:
-            out_filename = output_files[i]
-            np.save(out_filename, regression_values)
-            logging.info(f'Regression values saved to {out_filename}')
+    # Cargar el estado del modelo y corregir el prefijo 'module.'
+    state_dict = torch.load(model, map_location=device)
+    new_state_dict = {}
+    for key in state_dict:
+        new_key = key.replace('module.', '')  # Eliminar el prefijo 'module.'
+        new_state_dict[new_key] = state_dict[key]
+
+    net.load_state_dict(new_state_dict)
+    return (net, device)
 ```
 
 Ejemplo de uso:
@@ -294,12 +293,11 @@ Posicionados en el siguiente directorio:
 Es necesario dar como argumento la ruta donde se encuentra el modelo, la matriz de dimensionalidad 8 como entrada, así como la ruta donde guardar la matriz predicha antes de ejecutar la correspondiente función.
 
 ```
-input_files = ['/content/Matrices/TEST/IN/matriz_combinada1.npy']
-output_files = ['/content/salidaexample1.npy']
-predict_from_checkpoint('MODEL.pth', input_files, output_files, bilinear=False, no_save=False)
+net = load_model('/opt/share/MERIDA/Code/Pytorch-UNet/MODEL.pth')
+make_pred(net,'/opt/share/MERIDA/DATASET-TESTALL3/TEST/IN/matriz_combinada4315.npy')
 ```
 
 Se ha subido una versión del modelo previamente entrenado en el siguiente enlace:
 
-https://mega.nz/folder/nBAVzJqZ#9_ODIDPU3kYwvX6t0r8Y_w
+https://mega.nz/file/bZxAmKwA#g7Ize6XZf-O_XsDEthb_LDUh7sO4Pz-NiRL8DFRsUhw
 
